@@ -5,9 +5,10 @@ public class Response {
     private String status;
     private String message;
     private Object statusCode;
-    public Response(String status, String message){
+    public Response(String status,Object statusCode, String message){
         this.status = status;
         this.message = message;
+        this.statusCode = statusCode;
     }
 
     public String getStatus() {

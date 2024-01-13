@@ -29,7 +29,7 @@ public class StudentServiceImplementation implements StudentService {
 
         List<Student> studentsList = studentRepository.findAll();
         if (studentsList.isEmpty()){
-            throw new DetailsNotFoundException(new ErrorResponse( "Failure"));
+        throw new DetailsNotFoundException("No Details exists!!");
         }
         return new SucessResponse(HttpStatus.OK, "Details retrieved successfully", studentsList);
 }
@@ -38,7 +38,7 @@ public class StudentServiceImplementation implements StudentService {
     public Response getStudentById(int id) {
         Optional<Student> student = studentRepository.findById(id);
          if(student.isEmpty()){
-            return new ErrorResponse("Student doesn't exists");
+            throw new DetailsNotFoundException("No Details exists!!");
         }
         else {
             return new SucessResponse(HttpStatus.OK, "Details retrieved successfully", student);
@@ -55,7 +55,7 @@ public class StudentServiceImplementation implements StudentService {
     public Response deleteStudentById(int id) {
         Optional<Student> student = studentRepository.findById(id);
         if(student.isEmpty()){
-            return new ErrorResponse("Student doesn't exists");
+            throw  new DetailsNotFoundException("No Details exists!!");
         }
         else {
             studentRepository.deleteById(id);
@@ -67,10 +67,9 @@ public class StudentServiceImplementation implements StudentService {
     public Response updateStudentByID(int id, Student student) {
         Optional<Student> studentDB = studentRepository.findById(id);
         if(studentDB.isEmpty()){
-            return new ErrorResponse("Student doesn't exists");
+            throw  new DetailsNotFoundException("No Details exists!!");
         }
         else {
-
             Student st = studentDB.get();
             st.setName(student.getName());
             st.setAge(student.getAge());

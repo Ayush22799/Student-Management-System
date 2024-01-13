@@ -6,12 +6,11 @@ public class SucessResponse extends Response {
     private Object data;
 
     public SucessResponse(HttpStatus httpStatus, String message){
-        super("success", message);
-        this.setStatusCode(httpStatus.value());
+        super("success",httpStatus.value(), message);
     }
 
     public SucessResponse(HttpStatus httpStatus, String message, Object data){
-        super("success", message);
+        super("success",httpStatus.value(), message);
         this.data = data;
         this.setStatusCode(httpStatus.value());
     }

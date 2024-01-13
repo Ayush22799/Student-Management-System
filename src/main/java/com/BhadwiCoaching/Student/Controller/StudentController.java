@@ -23,6 +23,8 @@ public class StudentController {
     public ResponseEntity<Response> getAllStudent(){
 
         Response response = studentService.getAllStudent();
+
+
         return ResponseEntity.ok(response);
     }
 

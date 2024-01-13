@@ -5,8 +5,10 @@ import org.springframework.http.HttpStatus;
 
 public class DetailsNotFoundException extends RuntimeException{
 
-    private int statusCode;
-    public DetailsNotFoundException(Response response){
-    }
+    private String message;
 
+    public DetailsNotFoundException(String message){
+    super(message);
+    this.message=message;
+    }
 }

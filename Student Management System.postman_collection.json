@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "2bab2b9b-cd6a-463e-8298-e9ee02b12481",
+		"name": "Student Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21206229"
+	},
+	"item": [
+		{
+			"name": "Post Student Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Moh Faizal\",\r\n    \"dateOfBirth\": \"12 June 1998\",\r\n    \"branch\": \"Mechanical\",\r\n    \"age\": 25,\r\n    \"fees\": 30000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/coaching/manage/students/AddStudents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coaching",
+						"manage",
+						"students",
+						"AddStudents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Student Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coaching/manage/students/getAllStudent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coaching",
+						"manage",
+						"students",
+						"getAllStudent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student Data by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coaching/manage/students/studentId/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coaching",
+						"manage",
+						"students",
+						"studentId",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student Data by Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Ayush Tamrakar\",\r\n        \"dateOfBirth\": \"22 July 1999\",\r\n        \"branch\": \"CSE\",\r\n        \"age\": 25,\r\n        \"fees\": 30000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/coaching/manage/students/update/studentId/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coaching",
+						"manage",
+						"students",
+						"update",
+						"studentId",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All student",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coaching/manage/students/deleteAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coaching",
+						"manage",
+						"students",
+						"deleteAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete student by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/coaching/manage/students/delete/studentId/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coaching",
+						"manage",
+						"students",
+						"delete",
+						"studentId",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

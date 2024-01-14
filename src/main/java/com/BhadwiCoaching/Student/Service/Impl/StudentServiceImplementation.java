@@ -22,7 +22,7 @@ public class StudentServiceImplementation implements StudentService {
     @Override
     public Response AddStudent(Student student) {
         Student response = studentRepository.save(student);
-       return new SucessResponse(HttpStatus.OK, "Details saved Successfully", response );
+       return new SucessResponse("Details saved Successfully", response);
     }
     @Override
     public Response getAllStudent() {
@@ -31,7 +31,7 @@ public class StudentServiceImplementation implements StudentService {
         if (studentsList.isEmpty()){
         throw new DetailsNotFoundException("No Details exists!!");
         }
-        return new SucessResponse(HttpStatus.OK, "Details retrieved successfully", studentsList);
+        return new SucessResponse("Details retrieved successfully", studentsList);
 }
 
     @Override
@@ -41,14 +41,14 @@ public class StudentServiceImplementation implements StudentService {
             throw new DetailsNotFoundException("No Details exists!!");
         }
         else {
-            return new SucessResponse(HttpStatus.OK, "Details retrieved successfully", student);
+            return new SucessResponse("Details retrieved successfully", student.get());
         }
         }
 
     @Override
     public Response deleteAllStudent() {
         studentRepository.deleteAll();
-        return new SucessResponse(HttpStatus.OK, "Deleted All Successfully");
+        return new SucessResponse("Deleted All Successfully");
     }
 
     @Override
@@ -60,7 +60,7 @@ public class StudentServiceImplementation implements StudentService {
         else {
             studentRepository.deleteById(id);
             String name = student.get().getName();
-            return new SucessResponse(HttpStatus.OK,  name + "'s record deleted successfully");
+            return new SucessResponse(name + "'s record deleted successfully");
         }}
 
     @Override
@@ -70,16 +70,16 @@ public class StudentServiceImplementation implements StudentService {
             throw  new DetailsNotFoundException("No Details exists!!");
         }
         else {
-            Student st = studentDB.get();
-            st.setName(student.getName());
-            st.setAge(student.getAge());
-            st.setBranch(student.getBranch());
-            st.setDateOfBirth(student.getDateOfBirth());
-            st.setFees(student.getFees());
 
-            Student updateStudent = studentRepository.save(st);
+            studentDB.get().setName(student.getName());
+            studentDB.get().setDateOfBirth(student.getDateOfBirth());
+            studentDB.get().setBranch(student.getBranch());
+            studentDB.get().setFees(student.getFees());
+            studentDB.get().setAge(student.getAge());
 
-            return new SucessResponse(HttpStatus.OK, "Details Updated successfully", updateStudent);
+            studentRepository.save(studentDB.get());
+
+            return new SucessResponse("Details Updated successfully", studentDB);
         }
     }
 }

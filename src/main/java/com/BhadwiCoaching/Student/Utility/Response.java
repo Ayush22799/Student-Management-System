@@ -11,6 +11,7 @@ public class Response {
         this.statusCode = statusCode;
     }
 
+
     public String getStatus() {
         return status;
     }

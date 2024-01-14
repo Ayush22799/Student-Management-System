@@ -5,14 +5,13 @@ import org.springframework.http.HttpStatus;
 public class SucessResponse extends Response {
     private Object data;
 
-    public SucessResponse(HttpStatus httpStatus, String message){
-        super("success",httpStatus.value(), message);
+    public SucessResponse( String message){
+        super("success",HttpStatus.OK.value(), message);
     }
 
-    public SucessResponse(HttpStatus httpStatus, String message, Object data){
-        super("success",httpStatus.value(), message);
+    public SucessResponse(String message, Object data){
+        super("success",HttpStatus.OK.value(), message);
         this.data = data;
-        this.setStatusCode(httpStatus.value());
     }
 
     public Object getData() {

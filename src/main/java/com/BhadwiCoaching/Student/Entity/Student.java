@@ -1,30 +1,44 @@
 package com.BhadwiCoaching.Student.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.lang.NonNull;
 
 import javax.validation.constraints.NotBlank;
 
-@Entity
+@Entity(name = "Student_Detail")
 public class Student {
 
     @Id
     @GeneratedValue()
-    int studentId;
+    private int studentId;
     @NotBlank
-    String name;
+    @Column
+    private String name;
     @NotBlank
-    String dateOfBirth;
+    @Column
+    private String dateOfBirth;
     @NotBlank
-    String branch;
+    @Column
+    private String branch;
     @NotBlank
-    int age;
+    @Column
+    private int age;
     @NotBlank
-    int fees;
+    @Column
+    private int fees;
+
+    public Student(String name, String dateOfBirth, String branch, int age, int fees){
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.branch = branch;
+        this.age = age;
+        this.fees = fees;
+    }
+
+    public Student(){
+
+    }
 
     public int getStudentId() {
         return studentId;
